@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>Test Result</title>
+    </head>
+
+    <body>
+        <div class="container">
+        <h1>검사 결과</h1>
+            <ul>
+                {% for result, image in zip(results, images) %}
+
+                    <div class="result-image-container">
+                        <figure>
+                            <img src="{{ url_for('static', filename=image) }}" alt="Processed Image">
+                            <figcaption>{{ result }}</figcaption>
+                        </figure>
+                    </div>
+                
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>
+
