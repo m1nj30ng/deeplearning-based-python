@@ -39,7 +39,7 @@ def upload_file():
             person_filename = secure_filename(person_file.filename)
             person_file.save(os.path.join(app.config['UPLOAD_FOLDER'], person_filename))
             session['person_image_path'] = os.path.join(app.config['UPLOAD_FOLDER'], person_filename)
-    return render_template('web.html')
+    return render_template('index.html')
 
 
 @app.route('/result', methods=['POST'])
