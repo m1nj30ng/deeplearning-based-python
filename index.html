@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>HTP TEST</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>HTP Test란?</h1>
+            <p>
+            1948년 정신분석가 Buck에 의해 정신분석학을 토대로 개발된 검사로,
+            투사적인 면을 강조하고 있으며, 그림을 그린 사람의 성격, 발달, 융통성,
+            성숙도 등의 통합 정도와 환경과의 상호작용, 현실에서 주어지는 문제해결 능력
+            등과 관련된 정보를 효과적으로 파악할 수 있습니다.
+            집, 나무, 사람은 어렸을 때부터 매우 일상적으로 접하는 대상물로서
+            친밀감의 측면에서 가장 좋은 소재이기 떄문에 모든 연령의 대상자가
+            자유롭게 그릴 수 있으며, 억제된 정서를 표현할 수 있습니다. 
+            </p>
+            <h1>검사를 위해</h1>
+            <p>준비물: A4용지 3장, 연필, 지우개</p>
+            <p>1. 집, 나무, 사람 순으로 그림을 그려주세요. </p>
+            <p>2. 이때 사람은 머리부터 발끝까지 완전한 모습으로 그려주세요. </p>
+            <p>3. 완성하신 그림을 업로드 해주세요. 촬영시, 플래쉬는 켜지 말아주세요.</p>
+        
+            <div class="image-container">
+                <figure>
+                    <img src="{{ url_for('static', filename='example.jpg') }}" alt="HTP Test Example Image1">
+                    <figcaption>사진과 같이 여백이 없도록 그림을 촬영해주세요.</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="{{ url_for('static', filename='example2.jpg') }}" alt="HTP Test Example Image2">
+                    <figcaption>회전되어있거나, 그림이 잘렸다면 다시 촬영해주세요.</figcaption>
+                </figure>
+            </div>
+
+            <div class="upload-section">
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <div class="upload-section">
+                        <p>1. 집 그림을 업로드 해주세요.</p>
+                        <input type="file" name="home_image" accept="image/*">
+                    </div>
+                    <div class="upload-section">
+                        <p>2. 나무 그림을 업로드 해주세요.</p>
+                        <input type="file" name="tree_image" accept="image/*">
+                    </div>
+                    <div class="upload-section">
+                        <p>3. 사람 그림을 업로드 해주세요.</p>
+                        <input type="file" name="person_image" accept="image/*">
+                    </div>
+                    <button type="submit" class="upload-button btn-submit">업로드</button>
+                </form>
+                
+            
+            <div class="button-container">
+                <P>검사를 시작하고 싶으시다면, 아래의 버튼을 눌러주새요.</P>
+                <form action="/result" method="POST">
+                    <button type="submit" class="upload-button btn-submit">검사</button>
+                </form>
+            </div>
+            <div class="footer">
+                <p>2024 SJU DeepLearning base on Python</p>
+            </div>  
+
+        </div>
+    </body>
